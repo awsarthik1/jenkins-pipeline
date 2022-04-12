@@ -5,22 +5,16 @@ pipeline{
     agent any 
     stages{
         stage("Build"){
-            when {
-                not {
-                    branch releaseBranch
-                }
-                not {
-                    branch configBranch
-                }
-            } 
+            when { anyOf { branch configBranch; branch releaseBranch } }
             steps{
-                echo "This is Build stage"
-                echo "Build stage is completed successfully -  check release"        
+                echo "This is Build stage - testing master"
+                echo "Build stage is completed successfully"
             }
         }
         stage("Deploy"){
+            when { anyOf { branch configBranch; branch releaseBranch } }
             steps{
-                echo "deploy is running"
+                echo "deploy is running - hotfix is done"
             }
         }
         stage("3rd stage"){
