@@ -14,7 +14,7 @@ pipeline{
         stage("Deploy"){
             when { anyOf { branch configBranch; branch releaseBranch } }
             steps{
-                echo "deploy is running - hotfix is done check 1"
+                echo "deploy is running - hotfix is done check 2"
             }
         }
         stage("3rd stage"){
