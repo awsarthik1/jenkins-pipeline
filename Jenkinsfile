@@ -7,10 +7,10 @@ pipeline{
         stage("Build"){
             when {
                 not {
-                    releaseBranch
+                    branch releaseBranch
                 }
                 not {
-                    configBranch
+                    branch configBranch
                 }
             } 
             steps{
