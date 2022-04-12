@@ -5,14 +5,7 @@ pipeline{
     agent any 
     stages{
         stage("Build"){
-            when {
-                not {
-                    branch releaseBranch
-                }
-                not {
-                    branch configBranch
-                }
-            } 
+            when { anyOf { branch configBranch; branch releaseBranch } }
             steps{
                 echo "This is Build stage - testing master"
                 echo "Build stage is completed successfully"        
