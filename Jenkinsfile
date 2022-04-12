@@ -2,7 +2,6 @@ pipeline{
     agent any 
     stages{
         stage("Build"){
-           // when { not { branch1 == 'master' } }
             steps{
                 echo "This is Build stage"
                 echo "Build stage is completed successfully"        
