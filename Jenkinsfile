@@ -15,7 +15,7 @@ pipeline{
             } 
             steps{
                 echo "This is Build stage"
-                echo "Build stage is completed successfully"        
+                echo "Build stage is completed successfully -  check release"        
             }
         }
         stage("Deploy"){
