@@ -14,7 +14,7 @@ pipeline{
                 }
             } 
             steps{
-                echo "This is Build stage"
+                echo "This is Build stage - testing master"
                 echo "Build stage is completed successfully"        
             }
         }
