@@ -1,3 +1,6 @@
+releaseBranch = 'release'
+configBranch = '*/master'
+
 pipeline{
     agent any 
     stages{
