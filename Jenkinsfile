@@ -6,7 +6,6 @@ pipeline{
     stages{
         stage("Build"){
             when { not { branch configBranch } }
-            when { not { branch releaseBranch } }
             steps{
                 echo "This is Build stage"
                 echo "Build stage is completed successfully"        
