@@ -6,7 +6,7 @@ pipeline{
     agent any 
     stages{
         stage("Build"){
-            when { not { branch hotfix-2 } }
+            when { not { branch '*/master' } }
             steps{
                 echo "This is Build stage - testing master"
                 echo "Build stage is completed successfully"
