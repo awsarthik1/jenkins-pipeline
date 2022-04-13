@@ -1,11 +1,12 @@
 releaseBranch = 'release'
 configBranch = '*/master'
+hotfix = 'hotfix-2'
 
 pipeline{
     agent any 
     stages{
         stage("Build"){
-            when { anyOf { branch configBranch; branch releaseBranch } }
+            when { branch hotfix-2 }
             steps{
                 echo "This is Build stage - testing master"
                 echo "Build stage is completed successfully"
