@@ -9,8 +9,8 @@ pipeline{
                 not {
                     branch releaseBranch
                 }
-                not {
-                    branch configBranch
+                {
+                branch hotfix-3
                 }
             } 
             steps{
