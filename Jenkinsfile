@@ -7,9 +7,9 @@ pipeline{
         stage("Build"){
             when {
                 expression { BRANCH_NAME ==~ 'hotfix-3' }
-                not {
-                    branch releaseBranch
-                }
+//                not {
+//                    branch releaseBranch
+//                }
             } 
             steps{
                 echo "This is Build stage - testing master"
@@ -17,7 +17,8 @@ pipeline{
             }
         }
         stage("Deploy"){
-            when { anyOf { branch configBranch; branch releaseBranch } }
+//            when { anyOf { branch configBranch; branch releaseBranch } }
+            when { expression { BRANCH_NAME ==~ 'hotfix-3' }
             steps{
                 echo "deploy is running - hotfix is done check"
             }
