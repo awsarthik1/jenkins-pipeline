@@ -26,7 +26,8 @@ pipeline{
             }
         }
         stage("update image tags"){
-            when { expression { BRANCH_NAME ==~ allRelease } }
+            when { expression { BRANCH_NAME ==~ /(allMaster|configBranch)/ }
+//            when { expression { BRANCH_NAME ==~ allRelease } }
             steps{
                 echo "building 3rd stage"
                 echo "objective is to skip above 2 stages test3 for release branch"
