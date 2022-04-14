@@ -26,7 +26,7 @@ pipeline{
             }
         }
         stage("update image tags"){
-            when { expression { BRANCH_NAME ==~ /(allMaster|configBranch)/ }
+            when { expression { BRANCH_NAME ==~ /(allMaster|configBranch)/ } }
 //            when { expression { BRANCH_NAME ==~ allRelease } }
             steps{
                 echo "building 3rd stage"
