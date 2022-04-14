@@ -36,5 +36,6 @@ pipeline{
             steps{
                 echo "all the other branches are able to run this stage"
                 echo "for other branches this stage is build successful"
+            }
     }
 }
