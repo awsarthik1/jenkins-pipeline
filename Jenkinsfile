@@ -18,7 +18,7 @@ pipeline{
         }
         stage("Deploy"){
 //            when { anyOf { branch configBranch; branch releaseBranch } }
-            when { expression { BRANCH_NAME ==~ 'hotfix-3' }
+            when { expression { BRANCH_NAME ==~ 'hotfix-3' } }
             steps{
                 echo "deploy is running - hotfix is done check"
             }
