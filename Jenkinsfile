@@ -6,11 +6,9 @@ pipeline{
     stages{
         stage("Build"){
             when {
+                expression { BRANCH_NAME ==~ hotfix-3 }
                 not {
                     branch releaseBranch
-                }
-                {
-                branch hotfix-3
                 }
             } 
             steps{
