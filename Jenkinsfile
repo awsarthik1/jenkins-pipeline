@@ -29,7 +29,7 @@ pipeline{
             }
         }
         stage("update image tags"){
-            when { anyOf { branch masterBranch; branch allMaster } }
+            when { anyOf { branch masterBranch; branch releaseBranch } }
 //            when {
 //                expression {
 //                    BRANCH_NAME ==~ releaseBranch
