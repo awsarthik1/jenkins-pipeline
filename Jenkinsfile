@@ -1,5 +1,6 @@
 releaseBranch = 'release'
 configBranch = '*/master'
+masterBranch = '*/master'
 allMaster = 'all-reals-from-ht3'
 allRelease = 'all-release-from-ht3'
 
@@ -8,7 +9,8 @@ pipeline{
     stages{
         stage("update chart versions"){
             when {
-                expression { BRANCH_NAME ==~ allMaster }
+                branch allMaster
+//                expression { BRANCH_NAME ==~ allMaster }
 //                not {
 //                    branch releaseBranch
 //                }
@@ -19,19 +21,26 @@ pipeline{
             }
         }
         stage("verify helm charts"){
+            when { branch allMaster }
 //            when { anyOf { branch configBranch; branch releaseBranch } }
-            when { expression { BRANCH_NAME ==~ allMaster } }
+//            when { expression { BRANCH_NAME ==~ allMaster } }
             steps{
                 echo "deploy is running - hotfix is done check"
             }
         }
         stage("update image tags"){
-            when {
-                expression {
-                    BRANCH_NAME ==~ releaseBranch
-                    BRANCH_NAME ==~ allMaster
+            when { 
+                anyof {
+                    branch masterBranch
+                    branch allMaster
                 }
-             }  
+            }
+//            when {
+//                expression {
+//                    BRANCH_NAME ==~ releaseBranch
+//                    BRANCH_NAME ==~ allMaster
+//                }
+//             }  
 //            when { expression { BRANCH_NAME ==~ /(allMaster|configBranch)/ } }
 //            when { expression { BRANCH_NAME ==~ allRelease } }
             steps{
