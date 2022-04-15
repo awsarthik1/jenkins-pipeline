@@ -30,10 +30,7 @@ pipeline{
         }
         stage("update image tags"){
             when { 
-                anyof {
-                    branch masterBranch
-                    branch allMaster
-                }
+                anyof { branch masterBranch; branch allMaster }
             }
 //            when {
 //                expression {
