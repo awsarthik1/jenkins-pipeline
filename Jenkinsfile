@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage("update chart versions"){
             when {
-                branch allMaster
+                branch masterBranch
 //                expression { BRANCH_NAME ==~ allMaster }
 //                not {
 //                    branch releaseBranch
